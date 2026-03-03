@@ -1,0 +1,357 @@
+@use '_variables'
+@use '_mixins'
+
+/*sass --watch sass/styles.sass:css/styles.css*/
+
+body
+    margin: 0
+    padding: 0
+
+hr
+    margin: 0 0
+    height: 1px
+    border: 1px solid variables.$text-gray
+
+.text-red
+    color: variables.$secondary-color
+
+.text-gray
+    color: variables.$text-gray
+
+.carousel-caption
+    padding-top: 1.06vw
+    padding-bottom: 1.06vw
+
+.navbar
+    background-color: variables.$primary-color
+
+    &-logo
+        max-height: 60px
+
+    &-item
+        color: variables.$secondary-color
+        font-family: Red Hat Display
+        &:hover
+            background-color: variables.$primary-color
+            color: variables.$terciary-color
+
+    &-button-bg-red
+        background-color: variables.$secondary-color
+    
+    &-login
+        background-color: variables.$secondary-color
+        margin-left: 10px
+        padding: 0 5px 0 5px
+        border-radius: 50px 50px 50px 50px
+        transition: 0.5s
+        &-text
+            color: white
+            font-family: Red Hat Display
+        &:hover
+            background-color: variables.$terciary-color
+            transition: 0.5s
+
+
+
+.main
+    padding-top: 86px
+
+    &-div-1
+        padding: 0 0 0 0
+        //min-height: 800px
+    &-banner
+        padding-right: 0
+        padding-left: 0
+        @media (max-width: 768px)
+            display: none
+        &-content
+            margin-bottom: 14vw
+            &-special
+                margin-bottom: 7.66vw
+        &-title
+            font-family: Poppins
+            font-weight: bold
+            font-size: 4.25vw
+            line-height: 1
+            margin-bottom: 2.5vw
+        &-text
+            font-size: 1.6vw
+            margin-bottom: 2.5vw
+            &-ou
+                color: white
+                font-weight: bold
+                font-size: 1.86vw
+                margin-left: 15.45vw
+        &-button
+            background-color: white
+            font-weight: bold
+            padding: 0.43vw 1.28vw
+            font-size: 1.06vw
+            &-special
+                background-color: white
+                font-weight: bold
+                padding: 0.43vw 1.28vw
+                font-size: 1.06vw
+                margin-left: 25vw
+    &-banner-mobile
+        padding-right: 0
+        padding-left: 0
+        display: none
+        @media (max-width: 768px)
+            display: block
+        &-img
+            filter: brightness(50%)
+        &-content
+            margin-bottom: 70vw
+            &-special
+                margin-bottom: 25vw
+        &-title
+            font-family: Poppins
+            font-weight: bold
+            text-align: center
+            font-size: 9vw
+            line-height: 1
+            margin-bottom: 10vw
+        &-text
+            font-size: 4.5vw
+            margin-bottom: 10vw
+            text-align: justify
+            &-ou
+                color: white
+                font-weight: bold
+                font-size: 4vw
+                margin-top: 5vw
+                margin-left: 33vw
+        &-button
+            background-color: white
+            font-weight: bold
+            padding: 2vw 5vw
+            font-size: 4vw
+            &-special
+                background-color: white
+                font-weight: bold
+                padding: 2vw 5vw
+                font-size: 4vw
+                margin-left: 25vw
+            
+    
+
+    &-div-2
+        min-height: 450px
+        background: rgb(0,0,0)
+        background: linear-gradient(180deg, rgba(0,0,0,1) 10%, #353535 100%)
+        flex-direction: column
+        display: flex
+        justify-content: center
+        align-items: center
+        color: white
+        padding: 50px 0
+        @media (max-width: 768px)
+            padding: 50px 20px
+        &-title
+            font-size: 50px
+            font-family: Red Hat Display
+            font-weight: bold
+            @media (max-width: 768px)
+                font-size: 35px
+                
+        &-text
+            font-family: Poppins
+            max-width: 80vw
+            text-align: justify
+            @media (max-width: 768px)
+                font-size: 14px
+                
+
+    &-div-3
+        color: white
+        background-color: #353535
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+        align-items: center
+        padding: 20px 50px
+    &-info
+        &-box
+            text-align: center
+            width: 160px
+            padding: 10px
+            margin: 40px
+            background-color: black
+            border-radius: 10px
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+            transition: transform 0.3s ease
+            &:hover
+                transform: translateY(-5px)
+        &-icon
+            font-size: 50px
+            height: auto
+            margin: 10px 0
+        &-number
+            font-size: 24px
+            font-weight: bold
+            color: variables.$secondary-color
+        &-label
+            font-size: 14px
+            font-weight: bold
+            color: white
+        
+
+    &-div-4
+        padding: 30px 0
+        background-color: black
+        flex-direction: column
+        display: flex
+        justify-content: center
+        align-items: center
+        &-title
+            font-size: 40px
+            font-weight: bold
+            font-family: Red Hat Display
+            color: white
+
+
+    &-div-5
+        background-color: black
+        padding: 20px 0px
+        display: flex
+        flex-wrap: wrap
+        &-1
+            min-height: 100px
+            padding: 20px 30px
+            background: rgb(172,102,12)
+            background: linear-gradient(90deg, rgba(172,102,12,1) 0%, rgba(0,0,0,1) 100%)
+            margin-bottom: 40px
+        &-2
+            min-height: 100px
+            padding: 20px
+            background: rgb(216, 197, 26)
+            background: linear-gradient(270deg, rgb(216, 197, 26) 0%, rgba(0,0,0,1) 100%)
+            margin-bottom: 40px
+        &-3
+            min-height: 100px
+            padding: 20px
+            background: rgb(78,0,170)
+            background: linear-gradient(180deg, rgba(78,0,170,1) 0%, rgba(0,0,0,1) 100%)
+
+        &-title
+            text-align: center
+            color: white
+            font-family: Red Hat Display
+            font-size: 30px
+        &-text
+            color: white
+            text-align: justify
+            @media (max-width: 768px)
+                font-size: 14px
+
+
+    &-div-6
+        padding: 30px 0
+        background-color: black
+        flex-direction: column
+        display: flex
+        justify-content: center
+        align-items: center
+        &-title
+            font-size: 40px
+            font-weight: bold
+            font-family: Red Hat Display
+            color: white
+
+
+    &-div-7
+        background-color: black
+        padding: 20px 0px
+        display: flex
+        flex-wrap: wrap
+        &-1
+            min-height: 100px
+            padding: 20px
+            background: rgb(63,94,251)
+            background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,0,0,1) 100%)
+            margin-bottom: 40px
+        &-2
+            min-height: 100px
+            padding: 20px
+            background: rgb(16,199,51)
+            background: radial-gradient(circle, rgba(16,199,51,1) 0%, rgba(0,0,0,1) 100%)
+            margin-bottom: 40px
+        &-3
+            min-height: 100px
+            padding: 20px
+            background: rgb(172,12,12)
+            background: radial-gradient(circle, rgba(172,12,12,1) 0%, rgba(0,0,0,1) 100%)
+            margin-bottom: 40px
+        &-4
+            min-height: 100px
+            padding: 20px
+            background: rgb(29,12,172)
+            background: radial-gradient(circle, rgba(29,12,172,1) 0%, rgba(0,0,0,1) 100%)
+            margin-bottom: 40px
+
+        &-title
+            text-align: center
+            color: white
+            font-family: Red Hat Display
+            font-size: 30px
+        &-text
+            color: white
+            text-align: justify
+            @media (max-width: 768px)
+                font-size: 14px
+
+    
+    &-div-8
+        padding: 30px 50px
+        background-color: black
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        color: white
+        @media (max-width: 768px)
+            padding: 30px 20px
+    &-cta
+        &-title
+            text-align: center
+            font-family: Red Hat Display
+            font-weight: bold
+            margin-bottom: 20px
+        &-text
+            text-align: center
+            margin-bottom: 40px
+            @media (max-width: 768px)
+                font-size: 14px
+        &-button
+            background-color: variables.$secondary-color
+            font-weight: bold
+            margin-bottom: 40px
+
+
+    
+.footer
+    background-color: variables.$primary-color
+    padding: 0px 50px 20px 50px
+
+    &-logo
+        max-height: 30px
+
+    &-item-title
+        color: white
+        font-family: Red Hat Display
+    &-item
+        text-decoration: none
+        font-weight: none
+        transition: 0.5s
+        
+        &:hover
+            transition: 0.5s
+            color: variables.$secondary-color
+            transform: translateX(10px)
+            
+            
+    
+.copyright
+    background-color: variables.$bg-copyright
+

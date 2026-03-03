@@ -1,0 +1,442 @@
+--CRIAÇÃO DE TABLES--
+
+CREATE TABLE tab_alunos (
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(50) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    telefone varchar(15),
+    endereco varchar(100) NOT NULL,
+    responsavel_financeiro varchar(50) NOT NULL
+);
+
+CREATE TABLE tab_professores (
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(50) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    telefone varchar(15) NOT NULL,
+    email varchar(64) NOT NULL,
+    endereco varchar(100) NOT NULL,
+    disciplina varchar(30)
+);
+
+CREATE TABLE tab_cursos (
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(10),
+    preco float
+);
+
+CREATE TABLE tab_turmas (
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(3) NOT NULL,
+    professor_id SMALLINT,
+    hora_inicio time,
+    hora_fim time,
+    curso_id SMALLINT NOT NULL,
+    
+    CONSTRAINT FOREIGN KEY FK_TURMAS_CURSO
+	(curso_id) REFERENCES tab_cursos(id),
+    CONSTRAINT FOREIGN KEY FK_TURMAS_PROFESSOR
+	(professor_id) REFERENCES tab_professores(id)
+);
+
+CREATE TABLE tab_matriculas (
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    codigo_matricula varchar(32),
+    data_matriculado date DEFAULT now(),
+    aluno_id SMALLINT NOT NULL,
+    turma_id SMALLINT,
+    
+    CONSTRAINT FOREIGN KEY FK_MATRICULAS_ALUNO
+	(aluno_id) REFERENCES tab_alunos(id),
+    CONSTRAINT FOREIGN KEY FK_MATRICULAS_TURMA
+	(turma_id) REFERENCES tab_turmas(id)
+);
+
+====================================================================================================================
+--CRIAÇÃO DE PROCEDURES--
+
+/*
+DELIMITER $$
+
+CREATE PROCEDURE insert_Aluno (IN nomeAluno varchar(50), IN nascimentoAluno DATE, IN telefoneAluno varchar(15),IN enderecoAluno varchar(100),IN responsavelAluno varchar(50))
+BEGIN
+
+INSERT into tab_alunos(nome,data_nascimento,telefone,endereco,responsavel_financeiro)
+values(nomeAluno, nascimentoAluno, telefoneAluno, enderecoAluno, responsavelAluno);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE insert_Professor (IN nomeProfessor varchar(50), IN nascimentoProfessor DATE, IN telefoneProfessor varchar(15),IN emailProfessor varchar(64),IN enderecoProfessor varchar(100),IN disciplinaProfessor varchar(30))
+BEGIN
+
+INSERT into tab_professores(nome,data_nascimento,telefone,email,endereco,disciplina)
+values(nomeProfessor, nascimentoProfessor, telefoneProfessor, emailProfessor, enderecoProfessor, disciplinaProfessor);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE insert_Curso (IN nomeCurso varchar(10), IN precoCurso float)
+BEGIN
+
+INSERT into tab_cursos(nome,preco)
+values(nomeCurso, precoCurso);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE insert_Turma (IN nomeTurma varchar(10),IN idprofessorTurma SMALLINT,IN hora_inicioTurma time,IN hora_fimTurma time,IN cursoTurma MEDIUMINT)
+BEGIN
+
+INSERT into tab_turmas(nome, professor_id, hora_inicio, hora_fim, curso_id)
+values(nomeTurma, idprofessorTurma, hora_inicioTurma, hora_fimTurma, cursoTurma);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE insert_Matriculas (IN codigoMatricula varchar(32), IN dataMatriculado date,IN idalunoMatricula SMALLINT,IN idturmaMatricula SMALLINT)
+BEGIN
+
+INSERT into tab_matriculas(codigo_matricula, data_matriculado, aluno_id, turma_id)
+values(codigoMatricula, dataMatriculado, idalunoMatricula, idturmaMatricula);
+
+END $$
+DELIMITER ;
+*/
+/*
+DELIMITER $$
+CREATE PROCEDURE Get_Alunos ()
+BEGIN
+
+SELECT 	tab_alunos.id AS "Id",
+		tab_alunos.nome as "Nome Completo",
+		tab_alunos.data_nascimento AS "Data de nascimento",
+		tab_alunos.telefone AS "Telefone",
+		tab_alunos.endereco AS "Endereço",
+        tab_alunos.responsavel_financeiro AS "Responsável Financeiro"
+FROM tab_alunos;
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_Matriculas ()
+BEGIN
+
+SELECT 	tab_matriculas.id AS "Id",
+		tab_matriculas.codigo_matricula as "Código de Matrícula",
+		tab_matriculas.data_matriculado AS "Data de Matrícula",
+		tab_alunos.nome AS "Aluno",
+		tab_turmas.nome AS "Turma"
+FROM ((tab_matriculas
+INNER JOIN tab_alunos ON tab_matriculas.aluno_id = tab_alunos.id)
+INNER JOIN tab_turmas ON tab_matriculas.turma_id = tab_turmas.id);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_Professores ()
+BEGIN
+
+SELECT 	tab_professores.id AS "Id",
+		tab_professores.nome as "Nome Completo",
+		tab_professores.data_nascimento AS "Data de Nascimento",
+		tab_professores.telefone AS "Telefone",
+        tab_professores.email AS "Email",
+        tab_professores.endereco AS "Endereço",
+		tab_professores.disciplina AS "Disciplina"
+FROM tab_professores;
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_Turmas ()
+BEGIN
+
+SELECT 	tab_turmas.id AS "Id",
+		tab_turmas.nome as "Turma",
+		tab_professores.nome AS "Professor",
+		tab_turmas.hora_inicio AS "Hora de início",
+        tab_turmas.hora_fim AS "Hora de fim",
+        tab_cursos.nome AS "Curso"
+FROM ((tab_turmas
+INNER JOIN tab_professores ON tab_turmas.professor_id = tab_professores.id)
+INNER JOIN tab_cursos ON tab_turmas.curso_id = tab_cursos.id);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_Cursos ()
+BEGIN
+
+SELECT 	tab_cursos.id AS "Id",
+		tab_cursos.nome as "Nome",
+		tab_cursos.preco AS "Preço R$"
+FROM tab_cursos;
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_AlunosPorNome (IN Nome varchar(50))
+BEGIN
+
+SELECT 	tab_alunos.id AS "Id",
+		tab_alunos.nome as "Nome Completo",
+		tab_alunos.data_nascimento AS "Data de nascimento",
+		tab_alunos.telefone AS "Telefone",
+		tab_alunos.endereco AS "Endereço",
+        tab_alunos.responsavel_financeiro AS "Responsável Financeiro"
+FROM tab_alunos 
+WHERE tab_alunos.nome = Nome;
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_MatriculasPorAluno (IN Aluno varchar(50))
+BEGIN
+
+SELECT 	tab_matriculas.id AS "Id",
+		tab_matriculas.codigo_matricula as "Código de Matrícula",
+		tab_matriculas.data_matriculado AS "Data de Matrícula",
+		tab_alunos.nome AS "Aluno",
+		tab_turmas.nome AS "Turma"
+FROM ((tab_matriculas
+INNER JOIN tab_alunos ON tab_matriculas.aluno_id = tab_alunos.id)
+INNER JOIN tab_turmas ON tab_matriculas.turma_id = tab_turmas.id)
+WHERE tab_matriculas.aluno_id = (SELECT id FROM tab_alunos WHERE nome LIKE Aluno);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_MatriculasPorTurma (IN Turma varchar(10))
+BEGIN
+
+SELECT 	tab_matriculas.id AS "Id",
+		tab_matriculas.codigo_matricula as "Código de Matrícula",
+		tab_matriculas.data_matriculado AS "Data de Matrícula",
+		tab_alunos.nome AS "Aluno",
+		tab_turmas.nome AS "Turma"
+FROM ((tab_matriculas
+INNER JOIN tab_alunos ON tab_matriculas.aluno_id = tab_alunos.id)
+INNER JOIN tab_turmas ON tab_matriculas.turma_id = tab_turmas.id)
+WHERE tab_matriculas.turma_id = (SELECT id FROM tab_turmas WHERE nome LIKE Turma);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_AlunosPorProfessor (IN Professor varchar(50))
+BEGIN
+
+SELECT 	tab_alunos.id AS "Id",
+		tab_alunos.nome as "Nome Completo",
+		tab_alunos.data_nascimento AS "Data de nascimento",
+		tab_alunos.telefone AS "Telefone",
+		tab_alunos.endereco AS "Endereço",
+        tab_alunos.responsavel_financeiro AS "Responsável Financeiro"
+FROM tab_alunos
+WHERE tab_alunos.id IN (SELECT aluno_id FROM tab_matriculas WHERE turma_id = (SELECT id FROM tab_turmas WHERE professor_id = (SELECT id FROM tab_professores WHERE nome LIKE Professor)));
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_AlunosPorTurma (IN Turma varchar(3))
+BEGIN
+
+SELECT 	tab_alunos.id AS "Id",
+		tab_alunos.nome as "Nome Completo",
+		tab_alunos.data_nascimento AS "Data de nascimento",
+		tab_alunos.telefone AS "Telefone",
+		tab_alunos.endereco AS "Endereço",
+        tab_alunos.responsavel_financeiro AS "Responsável Financeiro"
+FROM tab_alunos
+WHERE tab_alunos.id IN (SELECT aluno_id FROM tab_matriculas WHERE turma_id = (SELECT id FROM tab_turmas WHERE nome LIKE Turma));
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_AlunosPorCodigoMatricula (IN Codigo varchar(32))
+BEGIN
+
+SELECT 	tab_alunos.id AS "Id",
+		tab_alunos.nome as "Nome Completo",
+		tab_alunos.data_nascimento AS "Data de nascimento",
+		tab_alunos.telefone AS "Telefone",
+		tab_alunos.endereco AS "Endereço",
+        tab_alunos.responsavel_financeiro AS "Responsável Financeiro"
+FROM tab_alunos 
+WHERE tab_alunos.id = (SELECT aluno_id FROM tab_matriculas WHERE codigo_matricula = Codigo);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_TurmasPorProfessor (IN Professor varchar(50))
+BEGIN
+
+SELECT 	tab_turmas.id AS "Id",
+		tab_turmas.nome as "Turma",
+		tab_professores.nome AS "Professor",
+		tab_turmas.hora_inicio AS "Hora de início",
+        tab_turmas.hora_fim AS "Hora de fim",
+        tab_cursos.nome AS "Curso"
+FROM ((tab_turmas
+INNER JOIN tab_professores ON tab_turmas.professor_id = tab_professores.id)
+INNER JOIN tab_cursos ON tab_turmas.curso_id = tab_cursos.id)
+WHERE professor_id = (SELECT id FROM tab_professores WHERE nome = Professor);
+
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Get_TurmasPorCurso (IN Curso varchar(10))
+BEGIN
+
+SELECT 	tab_turmas.id AS "Id",
+		tab_turmas.nome as "Turma",
+		tab_professores.nome AS "Professor",
+		tab_turmas.hora_inicio AS "Hora de início",
+        tab_turmas.hora_fim AS "Hora de fim",
+        tab_cursos.nome AS "Curso"
+FROM ((tab_turmas
+INNER JOIN tab_professores ON tab_turmas.professor_id = tab_professores.id)
+INNER JOIN tab_cursos ON tab_turmas.curso_id = tab_cursos.id)
+WHERE curso_id = (SELECT id FROM tab_cursos WHERE nome = Curso);
+
+END $$
+DELIMITER ;
+*/
+
+====================================================================================================================
+--INSERINDO TODOS OS DADOS COM PROCEDURES--
+
+CALL insert_Aluno("Caio Silva","2005-01-19","21 97654-3210","Rua Pedra Negra 2202","Ricardo Silva");
+CALL insert_Aluno("Bruno Henrique","2003-06-03","21 93052-6785","Rua Zumba 5180","Carlos Henrique");
+CALL insert_Aluno("Leonardo Barros","2004-07-10","21 92874-2661","Rua Coronel Tamarindo 7800","Samoa Barros");
+CALL insert_Aluno("Fábia Ramos","2004-03-01","21 97910-3437","Travessa João Rocha 72","Nídia Ramos");
+CALL insert_Aluno("Branca Osório","2005-01-19","21 95830-2999","Rua Pereira de Matos 5360","Sabrina Osório");
+CALL insert_Aluno("Eliana Varela","2003-05-23","21 96362-7156","Rua D 6125","Jason Varela");
+CALL insert_Aluno("Matthias Peixoto","2003-12-27","21 94127-3748","Rua Horizonte Azul 9115","Santiago Peixoto");
+CALL insert_Aluno("Simon Assunção","2003-01-13","21 97420-2328","Alameda Vitória 5368","Martin Assunção");
+CALL insert_Aluno("David Palmeira","2003-11-19","21 96417-5994","Rua José Correia da Costa 761","Tom Palmeira");
+CALL insert_Aluno("Antónia Peçanha","2005-03-14","21 91224-0450","Rua Manoel Rodrigues Pereira 620","Fernanda Peçanha");
+CALL insert_Aluno("Sandro Macena","2004-03-15","21 96451-3867","Avenida Rio Branco 03","Pavel Macena");
+CALL insert_Aluno("Joyce Fraga","2003-09-04","21 91191-3062","Rua Três 06","Christian Fraga");
+CALL insert_Aluno("Cândida Fogaça","2005-08-21","21 99705-0972","Rua Itatiaia 8460","Mohamed Fogaça");
+CALL insert_Aluno("Milene Távora","2005-06-11","21 97753-8469","Rua Domingos Cunha 313","Tiago Távora");
+CALL insert_Aluno("Yu Gois","2005-06-30","21 98537-5218","Estrada da Fontinha 1620","Anaya Gois");
+CALL insert_Aluno("Eliane Barata","2003-02-28","21 91538-1505","Rua Germana de Oliveira 265","Gilberto Barata");
+
+CALL insert_Professor("Thiago Ramos","1996-02-26","21 98840-5216","thiago.ramos@hotmail.com","Rua Alameda Nove 9732","História");
+CALL insert_Professor("Oliver Lima","1986-06-17","21 91184-4453","oliver.lima@hotmail.com","Rua Medgar Evers 3436","Ciências");
+CALL insert_Professor("Rene Robert","1987-07-22","21 96345-3737","rene.robert@gmail.com","Rua das Orquídeas 684","Português");
+CALL insert_Professor("Sofia Meliande","1982-09-26","21 95437-2080","sofia.meliande@hotmail.com","Rua Souza Lima 3954","Matemática");
+
+CALL insert_Curso("6ºAno EF",1250.00);
+CALL insert_Curso("7ºAno EF",1300.00);
+
+CALL insert_Turma("6A",1,"7:15","13:15",1);
+CALL insert_Turma("6B",2,"7:15","13:15",1);
+CALL insert_Turma("7A",3,"7:15","14:00",2);
+CALL insert_Turma("7B",4,"7:15","14:00",2);
+
+CALL insert_Matriculas(37060415,now(),1,2);
+CALL insert_Matriculas(62764924,now(),2,3);
+CALL insert_Matriculas(99124748,now(),3,1);
+CALL insert_Matriculas(37992803,now(),4,2);
+CALL insert_Matriculas(75034396,now(),5,3);
+CALL insert_Matriculas(92619303,now(),6,4);
+CALL insert_Matriculas(89847536,now(),7,1);
+CALL insert_Matriculas(66077809,now(),8,2);
+CALL insert_Matriculas(22490600,now(),9,3);
+CALL insert_Matriculas(50054058,now(),10,4);
+CALL insert_Matriculas(21920975,now(),11,1);
+CALL insert_Matriculas(13264252,now(),12,2);
+CALL insert_Matriculas(13199748,now(),13,3);
+CALL insert_Matriculas(14469676,now(),14,4);
+CALL insert_Matriculas(34712074,now(),15,3);
+CALL insert_Matriculas(46680336,now(),16,4);
+
+================================================================================================================================
+--EXEMPLO DE TODAS AS PROCEDURES--
+
+CALL Get_Alunos;
+CALL Get_Professores;
+CALL Get_Cursos;
+CALL Get_Turmas;
+CALL Get_Matriculas;
+
+CALL Get_MatriculasPorAluno("Yu Gois");
+CALL Get_MatriculasPorTurma("7B");
+CALL Get_TurmasPorProfessor("Rene Robert");
+CALL Get_TurmasPorCurso("6ºAno EF")
+CALL Get_AlunosPorNome("Sandro Macena");
+CALL Get_AlunosPorProfessor("oliver Lima");
+CALL Get_AlunosPorTurma("7B");
+CALL Get_AlunosPorCodigoMatricula("37992803")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

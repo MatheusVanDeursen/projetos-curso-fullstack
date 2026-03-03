@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <title>Livraria</title>
+</head>
+<body>
+
+    <div class="background-image">
+        <!------------NAVBAR------------>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#home" onclick="page('home')"">
+                <img src="https://www.travessa.com.br/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+                Travessa
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#clientes" onclick="page('clientes')">Clientes</a>
+                    <a class="nav-item nav-link active" href="#funcionarios" onclick="page('funcionarios')">Funcionários</a>
+                    <a class="nav-item nav-link active" href="#livros" onclick="page('livros')">Livros</a>
+                    <a class="nav-item nav-link active" href="#estoque" onclick="page('estoque')">Estoque</a>
+                    <a class="nav-item nav-link active" href="#vendas" onclick="page('vendas')">Vendas</a>
+                </div>
+            </div>
+        </nav>
+
+        <!------------HOME------------>
+        <div id="pageHome">
+            <h2 class="Titulo">Bem Vindo ao Sistema Travessa</h2>
+            <br>
+            <div id="blocoHome" class="center">
+                <div class="textHome">
+
+                    <p class="textNormal">
+                        Aqui é possível cadastrar, assim como visualizar seus <strong>Clientes</strong>, <strong>Funcionários</strong>, <strong>Livros</strong> e <strong>Vendas</strong>
+                        facilmente.
+                    </p>
+
+                    <p class="textSubTitulo">Cadastrar</p>
+
+                    <p class="textNormal">
+                        No fim de cada página, haverá um botão escrito 
+                        <button class="btn btn-primary" type="button" onclick="">Cadastrar</button>. 
+                        Nele você abrirá o <strong>Formulário de cadastro</strong> da respectiva página.
+                        <br>
+                        Agora basta preencher todos os campos do formulário e clicar 
+                        <button class="btn btn-success" type="button" onclick="">CADASTRAR</button>
+                        .
+                        <br>
+                        Alguns itens terão os símbolos
+                        <span class="btn btn-dark material-icons">control_point</span>
+                         e 
+                        <span class="btn btn-dark material-icons">remove_circle_outline</span>
+                        , eles são capazes de cadastrar mais de uma característica específica, como por exemplo, 2 gêneros literários.
+                    </p>
+
+                    <p class="textSubTitulo">Itens Cadastrados</p>
+
+                    <p class="textNormal">
+                        Cada item cadastradado será exibido em uma Caixa, onde todas as suas informações poderão ser encontradas.
+                        Note que algumas páginas é necessário usar o botao 
+                        <button onclick="" class="btn btn-dark" type="button">SELECIONAR</button>
+                         para realizar o cadastro.
+                         <b>Exemplo:</b>
+                        <div id="blocoCadastro" name="blocoHome">
+                            <h4>Livro 8</h4>
+                            <strong>Título:</strong> It a coisa<br>
+                            <strong>Autor:</strong> Stephen King<br>
+                            <strong>Gênero:</strong> Drama,Suspense<br>
+                            <strong>Preço:</strong> R$64.99<br>
+                            <button onclick="selectBotao()" class="btn btn-dark" type="button" name="botaoBlocoHome">SELECIONAR</button>
+                        </div>
+                    </p>
+
+                    <p class="textSubTitulo">Procurar Itens</p>
+
+                    <p class="textNormal">
+                        As páginas possuem um campo no topo para pesquisar um item específico. Ele se baseia no nome (título) para encontrá-lo.
+                        Caso deseje que a lista toda apareça novemente, é só deixá-lo em branco.
+                        <br><br>
+                        <b>Nota:</b>A procura de vendas se baseia no nome do funcionário que a realizou.
+                    </p>
+
+                </div>
+            </div>
+            <br>
+            
+            <br>
+
+        </div>
+
+
+        <!------------LIVROS------------>
+        <div id="pageLivros">
+            <h2 class="Titulo">Livros</h2>
+            <div id="divProcuraLivros">
+                <form class="form-horizontal">
+                    <div class="input-group mb-3">
+                        <input id="procuraLivros" oninput="validaLivro()" type="text" class="form-control input-md" placeholder="Procurar Títulos">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="button" onclick="validaLivro()">Procurar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="tituloCadastro" class="center"><h2>Livros Cadastrados</h2></div>
+            <div id="livrosCadastrados" class="center"></div>
+
+            <hr>
+
+            <button id="botaoLivroCadastrar" class="btn btn-primary" type="button" onclick="showFormLivro()">Cadastrar</button>
+            <!--FORM LIVROS-->
+            <div id="formLivro" class="container">
+                <form class="form-horizontal" name="formLivro">
+                    <fieldset>
+        
+                        <!-- Form Name -->
+                        <legend class="center">Cadastro de Livros</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputTituloLiv">Título</label>
+                            <div class="col-md-5">
+                                <input id="inputTituloLiv" name="inputTituloLiv" type="text" placeholder="Nome"
+                                    class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Appended Input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputAutorLiv">Autor</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <input id="inputAutorLiv" name="inputAutorLiv" type="text" class="form-control" placeholder="Nome">
+                                    <span class="btn btn-success material-icons green" type="button" onclick="addAutorLivro()">control_point</span>
+                                    <span class="btn btn-danger disabled material-icons red" type="button">remove_circle_outline</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divAddAutorLivro"></div>
+
+                        <!-- Appended Input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputGeneroLiv">Gênero</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <input id="inputGeneroLiv" name="inputGeneroLiv" type="text" class="form-control" placeholder="Drama, suspense...">
+                                    <span class="btn btn-success material-icons green" type="button" onclick="addGeneroLivro()">control_point</span>
+                                    <span class="btn btn-danger disabled material-icons red" type="button">remove_circle_outline</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divAddGeneroLivro"></div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputPrecoLiv">Preço</label>
+                            <div class="col-md-5">
+                                <input id="inputPrecoLiv" name="inputPrecoLiv" type="number" placeholder="R$"
+                                    class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputEstoqueLiv">Estoque</label>
+                            <div class="col-md-5">
+                                <input id="inputEstoqueLiv" name="inputEstoqueLiv" type="number" placeholder="Disponível"
+                                    class="form-control input-md">
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <button onclick="cadastraLivro()" class="btn btn-success">CADASTRAR</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- FIM FORM LIVROS-->
+        <br>
+        <br>
+        </div>
+
+
+        <!------------CLIENTES------------>
+        <div id="pageClientes">
+            <h2 class="Titulo">Clientes</h2>
+            <div id="divProcuraCliente">
+                <form class="form-horizontal">
+                    <div class="input-group mb-3">
+                        <input id="procuraClientes" oninput="validaCliente()" type="text" class="form-control input-md" placeholder="Procurar Clientes">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="button" onclick="validaCliente()">Procurar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="tituloCadastro" class="center"><h2>Clientes Cadastrados</h2></div>
+            <div id="clientesCadastrados" class="center"></div>
+
+            <hr>
+
+            <button id="botaoClienteCadastrar" class="btn btn-primary" type="button" onclick="showFormCliente()">Cadastrar</button>
+            <!--FORM CLIENTE-->
+            <div id="formCliente" class="container">
+                <form class="form-horizontal" name="formCliente">
+                    <fieldset>
+        
+                        <!-- Form Name -->
+                        <legend class="center">Cadastro de Clientes</legend>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputNomeCli">Nome</label>
+                            <div class="col-md-5">
+                                <input id="inputNomeCli" name="inputNomeCli" type="text" placeholder="Nome Completo"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputTelCli">Telefone</label>
+                            <div class="col-md-5">
+                                <input id="inputTelCli" name="inputTelCli" type="tel" placeholder="00 00000-0000"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputEmailCli">Email</label>
+                            <div class="col-md-5">
+                                <input id="inputEmailCli" name="inputEmailCli" type="email" placeholder="xxxx@mail.com"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+    
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputCpfCli">CPF</label>
+                            <div class="col-md-5">
+                                <input id="inputCpfCli" name="inputCpfCli" type="number" placeholder="000.000.000-00"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <button onclick="cadastraCliente()" class="btn btn-success">CADASTRAR</button>
+                    </div>
+                </div>
+
+            </div><!-- FIM FORM CLIENTE-->
+        <br>
+        <br>
+        </div>
+
+        <!------------FUNCIONARIOS------------>
+        <div id="pageFuncionarios">
+            <h2 class="Titulo">Funcionários</h2>
+            <div id="divProcuraFuncionario">
+                <form class="form-horizontal">
+                    <div class="input-group mb-3">
+                        <input id="procuraFuncionarios" oninput="validaFuncionario()" type="text" class="form-control input-md" placeholder="Procurar Funcionários">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="button" onclick="validaFuncionario()">Procurar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="tituloCadastro" class="center"><h2>Funcionários Cadastrados</h2></div>
+            <div id="funcionariosCadastrados" class="center"></div>
+
+            <hr>
+
+            <button id="botaoFuncionarioCadastrar" class="btn btn-primary" type="button" onclick="showFormFuncionario()">Cadastrar</button>
+            <!--FORM FUNCIONARIO-->
+            <div id="formFuncionario" class="container">
+                <form class="form-horizontal" name="formFuncionario">
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend class="center">Cadastro de Funcionários</legend>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputNomeFun">Nome</label>
+                            <div class="col-md-5">
+                                <input id="inputNomeFun" name="inputNomeFun" type="text" placeholder="Nome Completo"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputTelFun">Telefone</label>
+                            <div class="col-md-5">
+                                <input id="inputTelFun" name="inputTelFun" type="tel" placeholder="00 00000-0000"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputEmailFun">Email</label>
+                            <div class="col-md-5">
+                                <input id="inputEmailFun" name="inputEmailFun" type="email" placeholder="xxxx@mail.com"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputCpfFun">CPF</label>
+                            <div class="col-md-5">
+                                <input id="inputCpfFun" name="inputCpfFun" type="number" placeholder="000.000.000-00"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputEnderecoFun">Endereço</label>
+                            <div class="col-md-5">
+                                <input id="inputEnderecoFun" name="inputEnderecoFun" type="text" placeholder="adress"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="inputFiliacaoFun">Filiação</label>
+                            <div class="col-md-5">
+                                <input id="inputFiliacaoFun" name="inputFiliacaoFun" type="text" placeholder=""
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <button onclick="cadastraFuncionario()" class="btn btn-success">CADASTRAR</button>
+                    </div>
+                </div>
+
+            </div><!-- FIM FORM FUNCIONARIO-->
+            <br>
+            <br>
+        </div>
+
+        <!------------ESTOQUE------------>
+        <div id="pageEstoque">
+            <h2 class="Titulo">Atualizar Estoque</h2>
+            <div id="divProcuraEstoques">
+                <form class="form-horizontal">
+                    <div class="input-group mb-3">
+                        <input id="procuraEstoques" oninput="validaEstoque()" type="text" class="form-control input-md" placeholder="Procurar Títulos" aria-label="Procurar Estoques" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="button" onclick="validaEstoque()">Procurar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="tituloCadastro" class="center"><h2>Livros Cadastrados</h2></div>
+            <div id="estoquesCadastrados" class="center"></div>
+
+            <hr>
+
+            <button id="botaoEstoqueCadastrar" class="btn btn-primary" type="button" onclick="showFormEstoque()">Cadastrar</button>
+            <!--FORM ESTOQUE-->
+            <div id="formEstoque" class="container">
+                <form class="form-horizontal" name="formEstoque">
+                    <fieldset>
+        
+                        <!-- Form Name -->
+                        <legend class="center">Cadastro de Estoques</legend>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputEstoqueEst">Novo Estoque</label>
+                            <div class="col-md-5">
+                                <input id="inputEstoqueEst" name="inputEstoqueEst" type="number" placeholder="Disponível"
+                                    class="form-control input-md">
+        
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <button onclick="cadastraEstoque()" class="btn btn-success">CADASTRAR</button>
+                    </div>
+                </div>
+
+            </div><!-- FIM FORM ESTOQUE-->
+        <br>
+        </div>
+
+
+        <!------------VENDAS------------>
+        <div id="pageVendas">
+            <h2 class="Titulo">Vendas</h2>
+            <div id="divProcuraVendas">
+                <form class="form-horizontal">
+                    <div class="input-group mb-3">
+                        <input id="procuraVendas" oninput="validaVendas()" type="text" class="form-control input-md" placeholder="Procurar Vendas">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="button" oninput="validaVendas()">Procurar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="tituloCadastro" class="center"><h2>Vendas Cadastradas</h2></div>
+            <div id="vendasCadastrados" class="center"></div>
+
+            <hr>
+
+            <button id="botaoVendasCadastrar" class="btn btn-primary" type="button" onclick="showFormVendas()">Vender</button>
+            <!--FORM VENDAS-->
+            <div id="formVendas" class="container">
+                <form class="form-horizontal" name="formVendas">
+                    <fieldset>
+        
+                        <!-- Form Name -->
+                        <legend class="center">Executar Venda</legend>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputFuncionarioVen">Nome do Funcionário</label>
+                            <div class="col-md-5">
+                                <input id="inputFuncionarioVen" name="inputFuncionarioVen" type="text" placeholder="Nome Completo"
+                                    class="form-control input-md" oninput="validaVendasFun()">
+        
+                            </div>
+                        </div>
+                        <div id="blocoSelectVendasFun" class="blocoSelectVendas"></div>
+                        <br>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputClienteVen">Nome do Cliente</label>
+                            <div class="col-md-5">
+                                <input id="inputClienteVen" name="inputClienteVen" type="text" placeholder="Nome Completo"
+                                    class="form-control input-md" oninput="validaVendasCli()">
+        
+                            </div>
+                        </div>
+                        <div id="blocoSelectVendasCli" class="blocoSelectVendas"></div>
+                        <br>
+        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="inputLivroVen">Título Livro</label>
+                            <div class="col-md-5">
+                                <input id="inputLivroVen" name="inputLivroVen" type="text" placeholder="Título"
+                                    class="form-control input-md" oninput="validaVendasLiv()">
+                            </div>
+                            <div class="col-md-5">
+                                <input id="inputEstoqueVen" name="inputEstoqueVen" type="number" placeholder="Quantidade"
+                                    class="form-control input-md">
+                            </div>
+                        </div>
+                        <div id="blocoSelectVendasLiv" class="blocoSelectVendas"></div>
+                        <br>
+
+                    </fieldset>
+                </form>
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <button onclick="cadastraVendas()" class="btn btn-success" type="button">CADASTRAR</button>
+                    </div>
+                </div>
+
+            </div><!-- FIM FORM VENDAS-->
+        <br>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+<script src="JS/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+</html>

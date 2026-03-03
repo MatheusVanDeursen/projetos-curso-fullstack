@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CompMastery</title>
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <!--GoogleFonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!--Icones/Font Awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!--Red Hat Display-->
+        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <!--Poppins-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!--CSS Script-->
+        <link rel="stylesheet" href="css/styles.css">
+        <!--Favicon-->
+        <link rel="icon" href="img/favicon.jpg" type="image/x-icon">
+    </head>
+<body>
+
+    <!--Header / Navegação-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img class="navbar-logo" href="index.html" src="img/Logo-1000x240.png" alt="..."></a>
+            <button class="navbar-toggler navbar-button-bg-red" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="fa fa-bars text-dark"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item navbar-item"><a class="nav-link navbar-item" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle navbar-item" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Cursos
+                        </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a class="dropdown-item text-light disabled navbar-item" href="#">MATÉRIAS</a></li>
+                            <li><a class="dropdown-item navbar-item" href="#">Cálculo</a></li>
+                            <li><a class="dropdown-item navbar-item" href="#">Algoritmo e estrutura de dados</a></li>
+                            <li><a class="dropdown-item navbar-item" href="#">Teoria da computação</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-light disabled navbar-item" href="#">LINGUAGENS</a></li>
+                            <li><a class="dropdown-item navbar-item" href="#">Python</a></li>
+                            <li><a class="dropdown-item navbar-item" href="#">Linguagem C</a></li>
+                            <li><a class="dropdown-item navbar-item" href="#">HTML e CSS</a></li>
+                            <li><a class="dropdown-item navbar-item" href="#">JavaScript</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link navbar-item" href="#">Sobre nós</a></li>
+                    <li class="nav-item"><a class="nav-link navbar-item" href="#">Contribuir</a></li>
+                    <li class="nav-item navbar-login"><a class="nav-link navbar-login-text" href="#"> Entrar </a></li>    <!--Estilizar login com button-->          
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Main / Conteúdo-->
+    <div class="container-fluid main">
+        <div class="row">
+
+            <!--Div 1-->
+            <div class="main-div-1">
+                <section>
+                    <!--Banner PC/Tablet-->
+                    <div class="container-fluid main-banner">
+                    
+                        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Banner 1" ></button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Banner 2"></button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Banner 3" class="active" aria-current="true"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item">
+                                    <img src="img/Banner-1.jpg" class="img-fluid main-banner-img">
+                        
+                                    <div class="container">
+                                        <div class="carousel-caption text-start main-banner-content">
+                                            <h1 class="main-banner-title text-uppercase">Torne-se um<br> <t class="text-red">Cientista</t> da<br> Computação</h1>
+                                            <p class="styleParagrafoBanner main-banner-text">Cursos grátis de todos conteúdos para você atingir o<br> próximo nível.</p>
+                                            <a href="#" class="btn main-banner-button text-uppercase">Entrar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/Banner-2.jpg" class="img-fluid main-banner-img">
+                                    
+                                    <div class="container">
+                                        <div class="carousel-caption text-start main-banner-content">
+                                            <h1 class="main-banner-title text-uppercase">Junte-se a<br>profissão do<br><t class="text-red">Futuro</t></h1>
+                                            <p class="styleParagrafoBanner main-banner-text">Com cursos em mais de 20 matérias diferentes que<br> abrangem diversas 
+                                            áreas de programação.</p>
+                                            <a href="#" class="btn main-banner-button text-uppercase">Ver cursos</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item active">
+                                    <img src="img/Banner-3.jpg" class="img-fluid main-banner-img">
+                        
+                                    <div class="container">
+                                        <div class="carousel-caption text-start main-banner-content-special">
+                                            <h1 class="main-banner-title text-uppercase"><t class="text-red">Ajude-nos</t> em<br> nossa Jornada</h1>
+                                            <p class="styleParagrafoBanner main-banner-text">Comp<t class="text-red">Mastery</t> é uma plataforma independente que busca<br> inspirar e 
+                                            auxiliar os estudantes ao mundo da tecnologia.</p>
+                                            <a href="#" class="btn main-banner-button text-uppercase">Contribua</a>
+                                            <p class="main-banner-text-ou">OU</p>
+                                            <p class="styleParagrafoBanner main-banner-text">Saiba mais sobre o nosso trabalho e parceiros.</p>
+                                            <a href="#" class="btn btn-lg main-banner-button-special text-uppercase">Sobre nós</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <!--Banner Mobile-->
+                    <div class="container-fluid main-banner-mobile">
+                    
+                        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Banner 1" ></button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Banner 2"></button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Banner 3" class="active" aria-current="true"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item">
+                                    <img src="img/Banner-mobile-1.jpg" class="img-fluid main-banner-mobile-img">
+                        
+                                    <div class="container">
+                                        <div class="carousel-caption text-start main-banner-mobile-content">
+                                            <h1 class="main-banner-mobile-title text-uppercase">Torne-se um<br> <t class="text-red">Cientista</t> da<br> Computação</h1>
+                                            <p class="styleParagrafoBanner main-banner-mobile-text">
+                                                Cursos grátis de todos conteúdos para você atingir o próximo nível.
+                                            </p>
+                                            <a href="#" class="btn main-banner-mobile-button text-uppercase">Entrar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/Banner-mobile-2.jpg" class="img-fluid main-banner-mobile-img">
+                                    
+                                    <div class="container">
+                                        <div class="carousel-caption text-start main-banner-mobile-content">
+                                            <h1 class="main-banner-mobile-title text-uppercase">Junte-se a<br>profissão do<br><t class="text-red">Futuro</t></h1>
+                                            <p class="styleParagrafoBanner main-banner-mobile-text">
+                                                Com cursos em mais de 20 matérias diferentes que abrangem diversas 
+                                                áreas de programação.
+                                            </p>
+                                            <a href="#" class="btn main-banner-mobile-button text-uppercase">Ver cursos</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item active">
+                                    <img src="img/Banner-mobile-3.jpg" class="img-fluid main-banner-mobile-img">
+                        
+                                    <div class="container">
+                                        <div class="carousel-caption text-start main-banner-mobile-content-special">
+                                            <h1 class="main-banner-mobile-title text-uppercase"><t class="text-red">Ajude-nos</t> em nossa Jornada</h1>
+                                            <p class="styleParagrafoBanner main-banner-mobile-text">
+                                                Comp<t class="text-red">Mastery</t> é uma plataforma independente 
+                                                que busca inspirar e auxiliar os estudantes ao mundo da tecnologia.
+                                            </p>
+                                            <a href="#" class="btn main-banner-mobile-button text-uppercase">Contribua</a>
+                                            <p class="main-banner-mobile-text-ou">OU</p>
+                                            <p class="styleParagrafoBanner main-banner-mobile-text">Saiba mais sobre o nosso trabalho e parceiros.</p>
+                                            <a href="#" class="btn btn-lg main-banner-mobile-button-special text-uppercase">Sobre nós</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!--Div 2-->
+            <div class="main-div-2">
+                <h2 class="main-div-2-title text-uppercase mb-5">O que é a Comp<t class="text-red">Mastery</t>?</h2>
+                <p class="main-div-2-text">
+                    &emsp;Na CompMastery, oferecemos cursos completos e atualizados para quem deseja se destacar nas mais diversas áreas da computação
+                    e tecnologia. Seja você um iniciante buscando construir uma base sólida ou um profissional experiente querendo expandir seus conhecimentos, 
+                    temos o curso ideal para suas necessidades.
+                    <br>
+                    &emsp;Nossa plataforma é projetada para proporcionar uma experiência de aprendizado acessível e prática, com materiais didáticos de alta 
+                    qualidade e exercícios que simulam desafios do mundo real. Desde as primeiras linhas de código em HTML, CSS e JavaScript, até os conceitos 
+                    avançados de Teoria da Computação, Cálculo Numérico e Algoritmos, nossa missão é capacitar você para enfrentar as exigências do 
+                    mercado de trabalho com confiança.
+                </p>
+            </div>
+
+            <!--Div 3-->
+            <div class="main-div-3 container-fluid">
+                <div class="main-info-box">
+                    <i class="fa-sharp fa-solid fa-graduation-cap main-info-icon"></i>
+                    <p class="main-info-number">+500</p>
+                    <p class="main-info-label">Alunos Estudaram</p>
+                </div>
+                <div class="main-info-box">
+                    <i class="fa-solid fa-book main-info-icon"></i>
+                    <p class="main-info-number">+6</p>
+                    <p class="main-info-label">Cursos Disponíveis</p>
+                </div>
+                <div class="main-info-box">
+                    <i class="fa-regular fa-clock main-info-icon"></i>
+                    <p class="main-info-number">+320</p>
+                    <p class="main-info-label">Horas de Aula</p>
+                </div>
+                <div class="main-info-box">
+                    <i class="fa-solid fa-thumbs-up main-info-icon"></i>
+                    <p class="main-info-number">4.7/5</p>
+                    <p class="main-info-label">Avaliações Positivas</p>
+                </div>
+            </div>
+
+            <!--Div 4-->
+            <div class="main-div-4">
+                <h2 class="main-div-4-title">Cursos</h2>
+            </div>
+
+            <!--Div 5-->
+            <div class="main-div-5">
+                <div class="col-lg-9 main-div-5-1">
+                    <h3 class="main-div-5-title">Cálculo e Cálculo Numérico</h2>
+                    <p class="main-div-5-text">
+                        &emsp;O curso de Cálculo e Cálculo Numérico é essencial para estudantes e profissionais que desejam uma sólida
+                        compreensão das bases matemáticas utilizadas em diversas áreas da ciência e engenharia. Você começará com os
+                        fundamentos do Cálculo Diferencial e Integral, abordando limites, derivadas, integrais e suas aplicações práticas.
+                        Em seguida, o curso avança para o Cálculo Numérico, onde você aprenderá métodos computacionais para resolver
+                        problemas matemáticos que são difíceis ou impossíveis de solucionar analiticamente, como a resolução de equações
+                        não lineares, integração numérica, e interpolação.
+                        <br>
+                        &emsp;Esse curso é amplamente voltado para a aplicação prática dos conceitos, utilizando ferramentas computacionais
+                        como MATLAB ou Python para implementar algoritmos numéricos e analisar resultados. Ao final do curso, você terá as
+                        habilidades necessárias para aplicar o cálculo em contextos complexos e desenvolver soluções computacionais precisas 
+                        e eficientes para problemas matemáticos.
+                    </p>
+                </div>
+
+                <div class="col-lg-3">
+                    <!--Espaçamento responsivo-->
+                </div>
+                
+                <div class="col-lg-3">
+                    <!--Espaçamento responsivo-->
+                </div>
+
+                <div class="col-lg-9 main-div-5-2">
+                    <h3 class="main-div-5-title">Algoritmo e Estrutura de Dados</h2>
+                    <p class="main-div-5-text">
+                        &emsp;O curso de Algoritmos e Estrutura de Dados é fundamental para quem deseja desenvolver habilidades em programação
+                        e otimização de software. Neste curso, você aprenderá a projetar, implementar e analisar algoritmos eficientes, 
+                        além de compreender como as estruturas de dados podem ser utilizadas para armazenar e organizar informações de forma eficaz. 
+                        O curso cobre uma ampla variedade de tópicos, desde algoritmos de ordenação e busca até estruturas complexas como árvores, 
+                        grafos e tabelas hash.
+                        <br>
+                        &emsp;Com uma abordagem prática e orientada a projetos, você desenvolverá programas em linguagens como Python, Java ou C, 
+                        aplicando algoritmos e estruturas de dados em problemas reais. Ao concluir o curso, você estará capacitado a resolver desafios 
+                        computacionais complexos e a escrever código mais eficiente e escalável.
+                    </p>
+                </div>
+                <div class="col-lg-12 main-div-5-3">
+                    <h3 class="main-div-5-title">Teoria da Computação</h2>
+                    <p class="main-div-5-text">
+                        &emsp;O curso de Teoria da Computação oferece uma introdução abrangente aos conceitos fundamentais que formam a base da 
+                        ciência da computação. Você explorará a lógica por trás da computação, incluindo linguagens formais, autômatos, gramáticas 
+                        e máquinas de Turing. Este curso é essencial para aqueles que desejam entender os limites do que pode ser computado, bem como
+                        a relação entre linguagens e autômatos, e a complexidade dos algoritmos.
+                        <br>
+                        &emsp;Ao longo do curso, serão discutidos tópicos avançados como complexidade computacional, problemas NP-completos, e a 
+                        teoria da decidibilidade. O objetivo é fornecer uma compreensão profunda dos princípios teóricos que guiam o design de algoritmos 
+                        e sistemas computacionais. Este curso é especialmente valioso para estudantes que planejam seguir carreiras em pesquisa, 
+                        desenvolvimento de algoritmos, ou engenharia de software de alto nível.
+                    </p>
+                </div>
+            </div>
+
+            <!--Div 6-->
+            <div class="main-div-6">
+                <h2 class="main-div-4-title">Linguagens</h2>
+            </div>
+            
+            <!--Div 7-->
+            <div class="main-div-7">
+                <div class="col-xl-8 main-div-7-1">
+                    <h2 class="main-div-7-title">HTML e CSS</h2>
+                    <p class="main-div-7-text">
+                        &emsp;O curso de HTML & CSS é ideal para quem deseja ingressar no mundo do desenvolvimento web. Você aprenderá a criar páginas web estáticas
+                        e responsivas, utilizando o HTML para estruturar o conteúdo e o CSS para estilizar e dar vida às suas criações. Desde os conceitos
+                        básicos, como tags, classes e IDs, até técnicas avançadas de layout com Flexbox e Grid, este curso cobre tudo o que você precisa
+                        para criar sites modernos e visualmente atraentes.
+                        <br>
+                        &emsp;Além disso, o curso explora ferramentas e frameworks essenciais que otimizam o processo de desenvolvimento e garantem resultados
+                        profissionais. Você aprenderá a utilizar o Bootstrap, um dos frameworks de CSS mais populares, para criar layouts responsivos de forma 
+                        rápida e eficiente, aproveitando sua vasta biblioteca de componentes pré-construídos. Também será abordado o Sass 
+                        (Syntactically Awesome Stylesheets), um pré-processador de CSS que permite escrever estilos de forma mais organizada e com funcionalidades 
+                        avançadas como variáveis, mixins e aninhamento, facilitando a manutenção e escalabilidade do código.
+                    </p>
+                </div>
+
+                <div class="col-xl-4 main-div-7-2">
+                    <h2 class="main-div-7-title">JavaScript</h2>
+                    <p class="main-div-7-text">
+                        &emsp;No curso de JavaScript, você aprenderá a linguagem de programação que
+                        torna os sites dinâmicos e interativos. Este curso abrange desde os conceitos fundamentais, 
+                        como variáveis, loops e funções, até tópicos avançados como manipulação do DOM, eventos, e APIs.
+                        JavaScript é essencial para o desenvolvimento web moderno, e você ganhará habilidades para criar 
+                        animações, validar formulários, desenvolver jogos simples e muito mais. Com exercícios práticos e 
+                        projetos reais, você consolidará seus conhecimentos e estará preparado para avançar em frameworks e
+                        bibliotecas como React e Node.js.
+                        </p>
+                </div>
+                <div class="col-lg-6 main-div-7-3">
+                    <h2 class="main-div-7-title">Python</h2>
+                    <p class="main-div-7-text">
+                        &emsp;O Python é uma linguagem de programação versátil e poderosa, amplamente utilizada em desenvolvimento
+                        web, ciência de dados, automação e muito mais. Este curso é perfeito para iniciantes e também para
+                        aqueles que desejam aprofundar seus conhecimentos. Você aprenderá desde os conceitos básicos de programação,
+                        como estruturas de controle e funções, até tópicos avançados como manipulação de arquivos, bibliotecas externas,
+                        e programação orientada a objetos. Com projetos práticos, como análise de dados e automação de tarefas, você estará
+                        preparado para aplicar Python em diversas áreas da tecnologia.
+                    </p>
+                </div>
+                <div class="col-lg-6 main-div-7-4">
+                    <h2 class="main-div-7-title">Linguagem C</h2>
+                    <p class="main-div-7-text">
+                        &emsp;O curso de C oferece uma imersão profunda na linguagem de programação que é a base para muitas outras
+                        linguagens modernas. Este curso é ideal para quem deseja entender os conceitos fundamentais de programação,
+                        como alocação de memória, manipulação de ponteiros, e controle de hardware. Com uma abordagem prática, você aprenderá
+                        a desenvolver desde programas simples até projetos complexos, como sistemas embarcados e software de baixo nível.
+                        <br>
+                        &emsp;Ao final do curso, você terá uma compreensão sólida das bases da programação e estará preparado para avançar para linguagens
+                        mais complexas ou áreas especializadas.
+                    </p>
+                </div>
+            </div>
+
+            <!--Div 8-->
+            <div class="main-div-8">
+                <div class="main-cta col-md-6">
+                    <h2 class="main-cta-title">Ajude-nos a Melhorar e Crescer</h2>
+                    <p class="main-cta-text">
+                        Seu feedback é valioso para nós. Queremos continuar oferecendo conteúdo de alta qualidade, e 
+                        sua opinião faz toda a diferença. Se você deseja contribuir ainda mais, considere fazer uma doação para apoiar nossos esforços.
+                    </p>
+                </div>
+
+                <div class="col-md-1">
+                    <!--Espaçamento responsivo-->
+                </div>
+
+                <div class="actions col-md-5">
+                    <div class="feedback">
+                        <h3>Envie seu Feedback</h3>
+                        <p>Tem algo a dizer? Adoraríamos ouvir de você! Envie-nos suas sugestões, críticas ou elogios.</p>
+                        <a href="#" class="btn btn-md main-cta-button text-uppercase">Deixar Feedback</a>
+                    </div>
+                    
+                    <div class="donation">
+                        <h3>Faça uma Doação</h3>
+                        <p>Ajude-nos a continuar oferecendo conteúdo gratuito e de qualidade. Toda contribuição é bem-vinda!</p>
+                        <a href="#" class="btn btn-md main-cta-button text-uppercase">Doar agora</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>  
+    </div>
+
+    <!--Footer / Rodapé-->
+    <div class="container-fluid footer">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-12">
+                    <a class="footer-logo" href="index.html"><img class="footer-logo" href="index.html" src="img/Logo-1000x240.png" alt="..."></a>
+                </div>
+                <hr style="margin: 30px 0 0 0;">
+                <div class="col-md-6 col-lg-4">
+                    <div class=" d-flex flex-column">
+                        <h4 class="mb-4 footer-item-title text-white">Cursos</h4>
+                        <h6 class="text-white">MATÉRIAS</h6>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> Cálculo</a>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> Algoritmo e Estrutura de Dados</a>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> Teoria da Computação</a>
+                        <h6 class="text-white mt-4">LINGUAGENS</h6>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> Python</a>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> Linguagem C</a>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> HTML e CSS</a>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> JavaScript</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex flex-column">
+                        <h4 class="mb-4 footer-item-title">Sobre nós</h4>
+                        <p class="text-gray">
+                            <t class="text-red">CompMastery</t> is simply dummy text of the printing and typesetting industry. 
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </p>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> Saiba mais</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex flex-column">
+                        <h4 class="mb-4 footer-item-title">Contribuir</h4>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> Feedback</a>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-angle-right me-2"></i> Doar</a>
+                        <h4 class="mt-5 mb-4 footer-item-title">Contatos</h4>
+                        <a href="" class="footer-item text-gray"><i class="text-red fa fa-map-marker-alt me-2"></i> 123 Avenida, Rio, BRA</a>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-envelope me-2"></i> compmastery@gmail.com</a>
+                        <a href="" class="footer-item text-gray"><i class="text-red fas fa-phone me-2"></i> +555 91234-8765</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Copyright / Direitos autorais-->
+    <div class="copyright text-center p-3">
+        © 2024 Copyright:
+        <a class="text-body" href="https://CompMastery.com/">CompMastery.com</a>
+      </div>
+
+</body>
+</html>

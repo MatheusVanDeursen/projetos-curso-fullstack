@@ -1,0 +1,248 @@
+/*HOME*/
+#pageHome{
+    text-align: center;
+    width: 100%;
+    min-height: 500px;
+}
+
+#blocoHome{
+    width: 948px;
+    min-height: 600px;
+    background-color: white;
+    border-radius: 30px;
+    text-align: left;
+}
+
+.textHome{
+    padding: 10px 20px 10px 20px;
+}
+
+.textNormal{
+    font-size: 19px;
+}
+
+.textSubTitulo{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/*CLIENTES*/
+
+#pageClientes{
+    text-align: center;
+    width: 100%;
+    min-height: 500px;
+}
+
+#formCliente{
+    width: 50%;
+    background-color: lightgray;
+    text-align: left;
+    margin-left: 25%;
+    padding-bottom: 10px;
+    display: none;
+}
+
+#divProcuraCliente{
+    width: 50%;
+    margin-left: 25%;
+}
+
+#clientesCadastrados{
+    background-color: rgb(224, 224, 224);
+    width: 948px;
+    height: 600px;
+    overflow-y : scroll;
+    text-align: left;
+    color: black;
+}
+
+/*FUNCIONARIOS*/
+
+#pageFuncionarios{
+    text-align: center;
+    width: 100%;
+    min-height: 500px;
+}
+
+#formFuncionario{
+    width: 50%;
+    background-color: lightgray;
+    text-align: left;
+    margin-left: 25%;
+    padding-bottom: 10px;
+    display: none;
+}
+
+#divProcuraFuncionario{
+    width: 50%;
+    margin-left: 25%;
+}
+
+#funcionariosCadastrados{
+    background-color: rgb(224, 224, 224);
+    width: 948px;
+    height: 600px;
+    overflow-y : scroll;
+    text-align: left;
+    color: black;
+}
+
+/*LIVROS*/
+
+#pageLivros{
+    text-align: center;
+    width: 100%;
+    min-height: 500px;
+}
+
+#formLivro{
+    width: 50%;
+    background-color: lightgray;
+    text-align: left;
+    margin-left: 25%;
+    padding-bottom: 10px;
+    display: none;
+}
+
+#divProcuraLivros{
+    width: 50%;
+    margin-left: 25%;
+}
+
+#livrosCadastrados{
+    background-color: rgb(224, 224, 224);
+    width: 948px;
+    height: 600px;
+    overflow-y : scroll;
+    text-align: left;
+    color: black;
+}
+
+/*ESTOQUE*/
+
+#pageEstoque{
+    text-align: center;
+    width: 100%;
+    min-height: 500px;
+}
+
+#formEstoque{
+    width: 50%;
+    background-color: lightgray;
+    text-align: left;
+    margin-left: 25%;
+    padding-bottom: 10px;
+    display: none;
+}
+
+#divProcuraEstoques{
+    width: 50%;
+    margin-left: 25%;
+}
+
+#estoquesCadastrados{
+    background-color: rgb(224, 224, 224);
+    width: 948px;
+    height: 600px;
+    overflow-y : scroll;
+    text-align: left;
+    color: black;
+}
+
+/*VENDAS*/
+
+#pageVendas{
+    text-align: center;
+    width: 100%;
+    min-height: 500px;
+}
+
+#formVendas{
+    width: 50%;
+    background-color: lightgray;
+    text-align: left;
+    margin-left: 25%;
+    padding-bottom: 10px;
+    display: none;
+}
+
+#divProcuraVendas{
+    width: 50%;
+    margin-left: 25%;
+}
+
+#vendasCadastrados{
+    background-color: rgb(224, 224, 224);
+    width: 948px;
+    height: 600px;
+    overflow-y : scroll;
+    text-align: left;
+    color: black;
+}
+
+#menuCadastroVendas{
+    text-align: center;
+    width: 948px;
+    height: 38px;
+}
+
+.blocoSelectVendas{
+    width: 80%;
+    min-height: 0px;
+    background-color: white;
+}
+
+/*OUTROS*/
+.Titulo{
+    color: white;
+    text-shadow:#000 1px -1px 5px, #000 -1px 1px 5px, #000 1px 1px 5px, #000 -1px -1px 5px;
+}
+
+.center{
+    text-align: center;
+    margin: auto;
+}
+
+#tituloCadastro{
+    text-align: center;
+    width: 948px;
+    height: 42px;
+    background-color: rgb(134, 134, 134);
+}
+
+.erroValida{
+    color: red;
+    width:100%;
+    text-align: center;
+}
+
+#blocoCadastro{
+    border-radius: 10px;
+    text-align: left;
+    border: 5px outset rgb(151, 151, 151);
+    padding: 20px;
+    width: 100%;
+    min-height: 50px;
+    background-color: white;
+}
+
+body, html {
+    height: 100%;
+    background-color: #590000;
+  }
+  
+  .background-image {
+    /* The image used */
+    background-image: url("https://i.ibb.co/1r2pMzd/CARDIFF-UNITED-KINGDOM-OCTOBER-28-A-bookshelf-full-of-multicoloured-books-on-October-28-2018-in-Card.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 758px;
+
+    margin-top: 56px;
+  }
