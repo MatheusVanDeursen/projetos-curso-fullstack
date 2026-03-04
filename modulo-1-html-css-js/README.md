@@ -11,7 +11,6 @@ O objetivo prático deste módulo era construir um sistema em JavaScript que uti
 * Bootstrap 4.0 (via CDN)
 
 ## 💡 Principais Aprendizados
-*Este projeto foi fundamental na época para consolidar os seguintes conceitos:*
 * **Programação Orientada a Objetos (POO):** Utilizei herança para criar a classe Cliente e Funcionario a partir de uma classe base Pessoa, além de encapsular a lógica de exibição nos métodos imprime().
 * **Manipulação de DOM:** Aprendi a controlar a visibilidade de múltiplas seções ("páginas") em um único arquivo HTML através de funções que alteram o display do CSS via JavaScript.
 * **Gestão de Estado em Memória:** Implementei arrays globais (listaLivros, listaVendas, etc.) para armazenar e filtrar dados em tempo real, permitindo funções de busca por título ou nome.
