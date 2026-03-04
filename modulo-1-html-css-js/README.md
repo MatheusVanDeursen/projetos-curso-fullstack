@@ -18,6 +18,5 @@ O objetivo prático deste módulo era construir um sistema em JavaScript que uti
 * **Lógica de Fluxo de Caixa:** O módulo de vendas calcula automaticamente o lucro baseado no preço do livro e quantidade vendida, além de validar a disponibilidade no estoque antes de confirmar a transação.
 
 ## 🚀 Como Executar (Ambiente Local)
-*(Instruções básicas para rodar o projeto)*
 1. Clone o repositório completo.
 2. Abra o arquivo `index.html` em qualquer navegador.
