@@ -14,7 +14,6 @@ Para documentar a entrega e o funcionamento do sistema na época, gravei uma bre
 * MySQL
 
 ## 💡 Principais Aprendizados
-*Este projeto foi fundamental na época para consolidar os seguintes conceitos:*
 * **Modelagem Relacional:** Estruturei o banco dividindo as entidades em tabelas específicas (alunos, professores, cursos, turmas e matrículas). Garanti a integridade referencial utilizando chaves estrangeiras (FOREIGN KEY) para conectar turmas aos cursos e professores , e matrículas aos alunos e turmas.
 * **Automação com Stored Procedures:** Encapsulei a lógica de inserção de dados criando rotinas automatizadas no banco (CREATE PROCEDURE), padronizando o cadastro de novos registros sem precisar repetir comandos longos.
 * **Consultas e Cruzamento de Dados:** Desenvolvi relatórios avançados utilizando múltiplos INNER JOIN para extrair informações combinadas, como visualizar o nome do aluno atrelado à sua respectiva turma no momento da matrícula.
