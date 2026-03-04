@@ -6,7 +6,7 @@
 O objetivo prático deste módulo era construir e estruturar um banco de dados relacional completo. Decidi cxonstruir o ecossistema de uma escola, englobando o registro de alunos, professores, cursos de Ensino Fundamental, turmas e o sistema de matrículas.
 
 ## 📊 Estrutura do Banco de Dados
-(tabela-relacionamentos.jpg)
+![Tabelas do banco](tabela-relacionamentos.jpg)
 
 ## 🛠️ Tecnologias Utilizadas
 * SQL (Structured Query Language)
